@@ -1,9 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="sso-rest">
 <head>
     <title>SSO REST test page</title>
+    <link rel="stylesheet"
+          href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.3.0/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/controllers.js"></script>
 </head>
-<body>
-Testing we will... shortly ;)
+<body ng-controller="MainCtrl">
+<div class="well">
+    <form class="form-inline">
+        <input type="text" class="input-small" placeholder="User" ng-model="user"/>
+        <input type="password" class="input-small" placeholder="Password" ng-model="password"/>
+        <button type="submit" class="btn" ng-click="login()">Login</button>
+    </form>
+    <form class="form-horizontal">
+        <div class="control-group">
+            <button class="btn" ng-click="ping()">Ping</button>
+        </div>
+        <div class="control-group">
+            <button class="btn" ng-click="pong()">Pong</button>
+        </div>
+    </form>
+    <div class="well">
+        <div><span>Simon says: </span><span>{{ appMsg }}</span></div>
+        <div><span>Token:</span><span>{{ token }}</span></div>
+    </div>
+</div>
 </body>
 </html>

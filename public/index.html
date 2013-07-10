@@ -14,6 +14,24 @@
 </head>
 <body ng-controller="MainCtrl">
 <div class="well">
+    <div class="well">
+        <p>
+            What you have here is a proof of concept. The login form will holdname user and password right here on the
+            browser. You can generate a token for those credentials like in a SSO scenario with the 'Force-generate
+            token' button. This will make the 'I will expire after 10s' button send this token over the network and
+            'pong' module will use it to validate with SSO module.
+        </p>
+
+        <p>
+            On the other hand if you provide the user and password and use the 'Forever young' button the whole
+            process is done in the ping module. It will take the username and password (basic auth would be better here
+            but its just an example use case), hash it, ask SSO for a token and then cache hash->token. Now with every
+            request, instead of a token, the user sends username and password, so if the token ever expires the ping
+            module can request another one from the server without bothering the user. Username and password is not
+            stored on the server and the validation of the token happens on each request.
+        </p>
+    </div>
+
     <form class="form-inline">
         <input type="text" class="input-small" placeholder="User" ng-model="user"/>
         <input type="password" class="input-small" placeholder="Password" ng-model="password"/>
